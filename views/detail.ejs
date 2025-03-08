@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Details</title>
+  <link rel="stylesheet" href="/css/userDetail.css" />
+</head>
+<body>
+  <!-- Header Navigation -->
+  <header class="header-nav">
+    <h1>Your Controller</h1>
+  </header>
+
+  <!-- Main Content Container -->
+  <div class="user-detail-container">
+    <h2>User Details</h2>
+
+    <!-- User Details Section -->
+    <% if (user && user.entries && user.entries.length > 0) { %>
+      <% user.entries.forEach((entry, index) => { %>
+        <div class="card">
+          <h3>Personal Information - <%= index + 1 %></h3>
+          <p><strong>Name:</strong> <%= entry.name %></p>
+          <p><strong>Mobile No:</strong> <%= entry.mobileNumber %></p>
+          <p><strong>Aadhar:</strong> <%= entry.aadhar %></p>
+          <p><strong>PAn NO.:</strong> <%= entry.pan %></p>
+          <p><strong>DOB:</strong> <%= entry.dob %></p>
+        </div>
+      <% }); %>
+    <% } else { %>
+      <p>No User Data Found</p>
+    <% } %>
+    <a href="/api/device/dashboard">
+      <button class="dashboard-btn">Go to Dashboard</button>
+    </a>
+  </div>
+</body>
+</html>
